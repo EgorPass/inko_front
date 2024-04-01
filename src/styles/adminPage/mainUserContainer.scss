@@ -1,0 +1,53 @@
+@import "../scss/template.scss";
+
+.mainUserContainer {
+	
+		&__userInfoContainer,
+		&__userCourseContainer,
+		&__userDescriptionContainer {
+		
+
+			height: 100%;
+	
+			&_visible {
+				display: block;
+			}
+	
+			&_hidden {
+				display: none;
+			}
+
+
+		}
+
+	&__dataContainer {
+		// border: 1px dotted red;
+		@include setBox(10px 0 15px 0, 0px 0px 0px 0px );
+	}
+
+	&__dataItem {
+		box-sizing: border-box;
+		
+		display: grid;
+		grid-template-columns: 100px auto;
+		margin: 0px 0 8px;
+
+	}
+
+	&__dataProp {
+		// box-sizing: border-box;
+		// justify-self: end;
+	}
+
+	&__dataValue {
+		box-sizing: border-box;
+		
+		margin: 0 0 0 10px;
+	}
+
+	&__userRoles {
+
+		@include setBox(0 , 0px );
+	}
+
+}

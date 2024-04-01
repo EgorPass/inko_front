@@ -1,0 +1,35 @@
+@import "../scss/template.scss";
+
+.mainCourseContainer{
+
+	// &__head {
+	// 	padding: 0;
+	// }
+
+	&__courseInfoContainer {
+		height: 100%;
+	}
+
+	&__descriptionTitle {
+		@include setBox( 0, 10px 0);
+	}
+	
+	&__descriptionBody {
+		// border: 1px dotted black;
+		@include setBox( 15px 0 0 0, 0 5px 0 0 );
+		word-break: break-all;
+		// line-break: strict;
+		// hyphens: auto;
+	}
+
+	&__subListTitle {
+		cursor: pointer;
+
+		&:hover{ 
+			color: rgb(131, 111, 111);
+			text-decoration: underline;
+		}
+	}
+
+
+}

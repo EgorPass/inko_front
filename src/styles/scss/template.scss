@@ -1,0 +1,152 @@
+@import "./var.scss";
+@import "./mixin.scss";
+
+%resetBox {
+	// box-sizing: border-box;
+	// padding: 0;
+	// margin: 0;
+	@include setBox( 0, 0 ) ;
+	user-select: none;
+}
+
+%templateButton{ 
+	box-sizing: border-box;
+	width: $buttonWidth;
+	height: $buttonHeight;
+	padding: $buttonPadding;
+	border: none;
+	background-image: $buttonBG;
+	border-radius: $buttonRadius;
+	box-shadow: $buttonShadow;
+
+	cursor: pointer;
+
+	position: relative;
+	z-index: 1;
+	// transition: box-shadow  .1s, position .2s; //, background-image  .4s, position  .4s;
+	
+	&:active {
+		left: 2px;
+		top: 2px;
+		box-shadow: $buttonShadowActive;
+	}
+
+	&:hover {
+		text-shadow: $buttonHoverTextShadow;
+	}
+
+		@media(max-width: 1319px) {
+	
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+	
+			background-image: url("../../../public/sprite_.png");
+			background-size: 400px 400px;
+			background-origin: 0 0;
+		}
+
+
+
+}
+
+%templateBorderContainer{
+	box-sizing: border-box;
+	
+	overflow: auto;
+	// margin: 0;
+	border-radius: $borderContainerRadius;
+	box-shadow: $borderContainerInsetShadow;
+
+	background-color: $borderContainerBG;
+}
+
+%templateEditorClass{
+	box-sizing: border-box;
+	height: calc(100% - 50px);
+	padding: 0 0px 0px;
+
+	border-radius: 5px;
+	word-break: break-all;
+	cursor: text;
+}
+
+%templateToolbarClass {
+	@extend %resetBox;
+	@include simpleFlex(row, center, stretch);
+	background-color: transparent;
+	border: none;
+
+	& .rdw-dropdown-wrapper,
+	& .rdw-option-wrapper {
+		border-radius: $dropdownoptionWrapperRadius;
+		background-image: $dropdownoptionWrapperBG;
+		box-shadow: $dropdownoptionWrapperBoxShadow;
+		margin: $dropdownoptionWrapperMargin;
+	}
+
+	& .rdw-fontsize-dropdown {
+		min-width: 50px;
+	}
+
+	& .rdw-dropdownoption-default {
+		background-color: $dropdownoptionMenuBG;
+	}
+
+	& .rdw-colorpicker-modal-options {
+		overflow-x: hidden;
+	}
+
+	@media(max-width: 1319px ) {
+		display: flex;
+		flex-flow: row wrap;
+
+		& .rdw-fontfamily-wrapper {
+			width: 50px;
+
+			& .rdw-dropdown-carettoopen{
+				display: none;
+			}
+		}
+
+		& .rdw-block-wrapper {
+			width: 100px;
+				& .rdw-dropdown-carettoopen {
+					display: none;
+				}
+		}
+	}
+}
+
+%templateDataItem {
+	@extend %resetBox;
+	height: 30px;
+			
+	display: grid;
+	grid-template-columns: 155px auto;
+			
+	align-items: center;
+}
+
+%templateDataValue {
+	@extend %resetBox;
+	border: none;
+		
+	& legend {
+		display: none;
+	}
+}
+
+%templateDataValueInput {
+	
+	@include setBox( 0, 2px 0 0 2px );
+
+	width: 100%;
+	border: none;
+	outline: none;
+	border: none;
+	border-bottom: 1px solid gray;
+	font-size: 16px;
+	font-weight: bold;
+	background-color: transparent;
+}

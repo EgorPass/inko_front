@@ -1,0 +1,13 @@
+
+@mixin simpleFlex($dir, $ji, $ai) {
+	display: flex;
+	flex-flow: $dir nowrap;
+	justify-content: $ji;
+	align-items: $ai;
+}
+
+@mixin setBox( $m, $p ) {
+	box-sizing: border-box;
+	margin: $m;
+	padding: $p;
+}

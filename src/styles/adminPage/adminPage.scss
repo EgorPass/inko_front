@@ -1,0 +1,289 @@
+@import "../scss/template.scss";
+@import "../scss/mixin.scss";
+
+.adminPage {
+
+	&__mainEmptyDataFieldContainer,
+	&__mainListsFieldContainer, 
+	&__createCourseContainer, 
+	&__mainCourseContainer, 
+	&__createUserContainer,
+	&__mainUserContainer {
+
+		// border: 1px solid black;	
+		
+		@extend %resetBox;
+		
+		border-radius: $mainContainerRadius;
+		box-shadow: $mainContainerShadow;
+		
+		display: grid;
+		grid-template-rows: $containerFieldGridRow;
+		grid-template-columns: auto;
+		overflow: hidden;
+
+		// height: 100%;
+
+		position: absolute;
+		@media( max-width: 1319px ) {
+			width: 670px;
+			height: calc(100% - 20px);
+		}
+		
+		
+		@media( max-width: 700px) {
+			top: 10px;
+			left: 15px;
+			bottom: 10px;
+			right: 15px;
+			margin: 0;
+			width: auto;
+			z-index: 100;
+		}
+
+		@media( min-width: 1320px) {
+			position: static;
+		} 
+	}
+	&__button {
+		display: block;
+		
+		@extend %templateButton;
+
+		@media( max-width: 1319px) {
+
+			&_change {
+				background-position: -307px 0px;
+			}
+			&_view {
+				background-position: -92px -185px;
+			}
+			&_close {
+				background-position: -215px -123px;
+			}
+			&_save {
+				background-position: -30px -30px;
+			}
+			&_remove {
+				background-position: -92px -153.5px;
+			}
+			&_reset {
+				background-position: -277px -277px;
+			}
+			&_createUser {
+				background-position: .5px -61.5px;
+			}
+			&_createSubject {
+				background-position: -215px -61.5px;
+			}
+			&_createCourse {
+				background-position: -184px -123px;
+			}
+			&_add {
+				background-position: 10px 10px;
+			}
+		}
+
+	}
+
+	&__buttonTitle {
+
+		@media(max-width: 1319px) {
+			display: none;
+		}
+	}
+
+	&__linkAsButton {
+		@include simpleFlex(row, center, center);
+		
+		text-decoration: none;
+		color: black;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 13.3px;
+		
+		@extend %templateButton;
+
+		@media(max-width: 1319px) {
+
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+
+			background-image: url("../../../public/sprite_.png");
+			background-size: 400px 400px;
+			background-origin: 0 0;
+
+			
+		}
+
+	}
+
+	&__mainEmptyDataFieldContainer,
+	&__mainListsFieldContainer,
+	&__createCourseContainer,
+	&__mainCourseContainer,
+	&__createUserContainer,
+	&__mainUserContainer {
+	
+		& .mainUserContainer,
+		& .mainCourseContainer,
+		& .createUserContainer,
+		& .createCourseContainer,
+		& .mainListsFieldContainer,
+		& .mainEmptyDataFieldContainer {
+			
+			&__tabContainer {
+				// border:1px dotted red;
+				align-self: end;
+				@include simpleFlex(row, start, flex-end);
+			}
+			&__tabItem {
+				height: $headerHeight;
+
+				flex-grow: $toggleFlexGrow;
+				flex-basis: $toggleFlexBasis;
+				flex-shrink: $toggleFlexShrink;
+
+				@include simpleFlex(row, center, center);
+
+				border-radius: $toggleRadius;
+				box-shadow: $mainContainerShadow;
+
+				// border-bottom: none;
+
+				cursor: pointer;
+
+				// position: relative;
+
+				&_passive {
+					color: $headerTextColorPassive;
+					// background-color: #ebebeb;
+					background-image: $headerContainerBGPassive;
+				}
+
+				&_active {
+					color: $headerTextColorActive;
+					text-decoration: underline;
+					background-image: $headerContainerBGActive;
+				}
+			}
+			&__emptyHeader {
+				height:$headerHeight;
+				background-image: $headerContainerBGActive;
+			}
+			&__head {
+				// border: 1px dotted red;
+				// @include setBox( $mainListsFieldHeadMargin_ms, $mainListsFieldHeadPadding_ms);
+				@include setBox(15px 0, 0);
+				text-align: center;
+				height: 18px;
+				overflow: hidden;
+			}
+			&__mainContainer {
+				// border: 1px solid blue;
+				@include setBox($mainContainerMargin_ms, $mainContainerPadding_ms);
+				background-color: $mainContainerBG;
+				height: 100%;
+				cursor: default;
+			}
+			&__borderContainer {
+				// border: 1px solid blue;
+				@include setBox( $borderContainerMargin_ms, $borderContainerPadding_ms);
+				@extend %templateBorderContainer;
+				
+				height: calc(100% - 33px);
+			}
+			&__buttonContainer {
+				box-sizing: border-box;
+				// border: 1px dotted red;
+				@include simpleFlex(row, flex-start, center);
+				border-radius: $buttonContainerRadius;
+
+				background-color: $mainContainerBG;
+				background-image: $buttonContainerBG;
+			}
+		}
+	}
+
+	&__mainCourseContainer,
+	&__mainUserContainer,
+	&__homeListsFieldContainer {
+		& .mainListsField,
+		& .mainCourseContainer,
+		& .userDescription {
+			&__head {
+				// @include setBox(0 0 0px, 0px 0 15px);
+				@include setBox(0 0 15px, 0px 0 0px);
+			}
+		}
+	}
+
+	&__mainUserContainer {
+		& .mainUserContainer__userDescriptionContainer .mainUserContainer__borderContainer{
+				height: calc(100% - 33px);
+				// border: 1px solid blue;
+		}
+	}
+
+	&__createCourseContainer,
+	&__mainCourseContainer,
+	&__createUserContainer,
+	&__mainUserContainer {
+		& .mainUserContainer,
+		& .createUserContainer,
+		& .createCourseContainer {
+			&__borderContainer 	{
+				height: calc(100% - 48px);
+			}
+		}
+
+		& .mainUserContainer,
+		& .mainCourseContainer,
+		& .createUserContainer,
+		& .createCourseContainer {
+			&__buttonContainer {
+				
+				justify-content: flex-end; // отличается от mainListsFieldContainer
+				padding: 0 10px 0 0;
+				& button, & a {
+					margin-right: 20px; // отличается от mainListsFieldContainer
+				}
+			}
+			&__scrollContainer {
+				// border: 1px dotted red;
+				box-sizing: border-box;
+			
+				height: 100%;
+				overflow: auto;
+			}
+			&__supLists {
+				list-style-type: none;
+				@include setBox( 0, 10px 0 0 0px);
+			}
+			&__supListItem {
+				@include setBox(0, 0 0 10px);
+			}
+			&__supListTitle {
+			}
+			&__subLists {
+				list-style-type: circle;
+				@include setBox(0, 0 0 0 40px);
+			}
+			&__subListItem {
+				@include setBox( 0 0 10px, 0);
+			}
+			&__subListTitle {
+
+			}
+		}
+
+	}
+
+	&__mainEmptyDataFieldContainer {
+		display: none;
+		@media (min-width: 1320px) {
+			display: grid;
+		}
+	}
+}
+

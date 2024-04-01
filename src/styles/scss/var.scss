@@ -1,0 +1,91 @@
+
+
+
+
+$modalContainerBG: rgba(128, 128, 128, 0.295);
+
+
+
+
+
+////////////////////// main layout ////////////////////
+
+// основа для страницы
+$adminBodyBG: rgb(229, 229, 253);
+$adminBodyGridRow_ms: 50px calc(100vh - 50px) 0px;
+$adminHeaderBG: #f7f7f7;
+$adminHeaderBoxShadow: 2px 2px 2px gray;
+// основной вид колонок с контентом
+$adminPageMargin_ms: 15px auto;
+$adminPagePadding_ms: 5px 15px;
+
+$adminPageGridCol_ms: 440px 860px;
+$adminPageGridGap_ms: 20px;
+
+$adminHeaderContainerWidth_ms: 1320px;
+
+
+//////////////////////////////////////////////////////////
+
+// основного контента
+$containerFieldGridRow: 30px calc(100% - 100px) 70px;
+
+$mainContainerBG: #f7f7f7;
+$mainContainerRadius: 15px 15px 5px 5px;
+$mainContainerShadow: 2px 2px 2px gray;
+
+$mainContainerMargin_ms: 0;
+$mainContainerPadding_ms: 0px 30px;
+
+$headerContainerBG: black; // возможно и не понадобиться
+$headerContainerBGActive: linear-gradient(0deg, #f7f7f7 40%, rgba(192, 202, 187, 1));
+$headerContainerBGPassive: linear-gradient(0deg, #ebebeb 40%, white);
+
+$headerTextColorActive: rgb(22, 27, 22);
+$headerTextColorPassive: gray;
+$headerHeight: 30px;
+
+// текстовая область описания
+$borderContainerInsetShadow: inset 0px 0px 3px rgba(128, 128, 128, 0.308);
+$borderContainerBG: rgba(247, 250, 207, 0.123);
+$borderContainerMargin_ms: 0;
+$borderContainerPadding_ms: 10px 10px 10px 25px; 
+$borderContainerRadius: 15px;
+
+$dropdownoptionWrapperBG: linear-gradient(0deg, rgba(206, 206, 206, 0.568), white);
+$dropdownoptionWrapperBoxShadow: 1px 1px 2px gray;
+$dropdownoptionWrapperMargin: 0 10px 0 3px;
+$dropdownoptionWrapperRadius: 5px;
+$dropdownoptionMenuBG: rgba(206, 206, 206, 0.151);
+
+// button container
+$buttonContainerBG: linear-gradient(180deg, #f7f7f7 50%, rgba(192, 202, 187, 1));
+$buttonContainerRadius: 0 0 5px 5px;
+
+// параметры для кнопок
+$buttonBG: linear-gradient(0deg, rgba(128, 128, 128, 0.452), white);
+$buttonRadius: 12px;
+$buttonWidth: 180px;
+$buttonHeight: 30px;
+$buttonPadding: 1px 6px;
+$buttonShadow: 2px 2px 4px gray;
+$buttonShadowActive: 1px 1px 2px gray;
+$buttonHoverTextShadow: 1px 1px 3px limegreen;
+
+
+
+// настройка тоглов
+
+$toggleRadius: 15px 15px 0 0;
+$toggleFlexGrow: 0.8;
+$toggleFlexBasis: 20%;
+$toggleFlexShrink: 10;
+
+
+
+// menu
+
+$mainListsFieldMargin_ms: 0;
+$mainListsFieldPadding_ms: 0px 20px 0 30px;
+$mainListsFieldHeadMargin_ms: 0;
+$mainListsFieldHeadPadding_ms: 15px 0;

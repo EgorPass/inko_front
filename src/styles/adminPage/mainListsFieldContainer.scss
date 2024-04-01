@@ -1,0 +1,99 @@
+@import "../scss/template.scss";
+
+.mainListsFieldContainer {
+
+
+	&__mainListsField {
+		// border: 1px dotted red;
+
+		border-width: 0 1px 1px 1px;		
+		@include setBox( $mainListsFieldMargin_ms, $mainListsFieldPadding_ms );
+
+		background-color: $mainContainerBG;
+		// background-image: url(../../assets/inko.png);
+		// background-repeat: no-repeat;
+		// background-position: center center;
+		// background-size: contain;
+		
+	}
+
+&__buttonContainer {
+		// border: 1px dotted red;
+		justify-content: flex-start; // отличается от mainDataFieldContainer
+		& button {
+			margin-left: 20px;				// отличается от mainListsFieldContainer
+		}
+	}
+
+	&__linkTitle {
+
+		font-style: italic;
+		margin: 0  0 0 30px;
+		text-decoration: underline;
+		cursor: pointer;
+		text-shadow: 2px 2px 2px rgba(128, 128, 128, 0.5);;
+		&:hover {
+			text-shadow: $buttonHoverTextShadow;
+		}
+	}
+}
+
+.mainListsField {
+
+	&__head {
+		// border: 1px dotted red;
+		@include setBox( $mainListsFieldHeadMargin_ms, $mainListsFieldHeadPadding_ms );
+		text-align: center;
+		// cursor: default;
+	}
+
+	&__scrollBox {
+		// border: 1px dotted blue;
+		
+		@extend %resetBox;
+		// box-sizing: border-box;
+
+		overflow: auto;
+		height: calc(100% - 48px);
+		// padding: 0;
+
+	}
+
+	&__supLists {
+		// border: 1px dotted red;
+		@extend %resetBox;
+		list-style-type: none;
+		height: 100%;	
+	}
+	
+	&__supListItem {
+		@include setBox(0 0 10px 0, 5px 0 0 0);
+	}
+
+	&__subLists {
+		// border: 1px dotted blue;
+		@include setBox(5px 0 0 0px, 0px 0px 5px 30px);
+		list-style-type: circle;
+		height: 100%;
+	}
+
+	&__subListItem {
+		margin: 0 0 5px 0;
+
+	}
+
+	&__supListTitle, &__subListTitle {
+		cursor: pointer;
+		
+		text-shadow: 2px 2px 2px rgba(128, 128, 128, 0.5);
+
+		&_active {
+			color: black;
+			text-shadow: 2px 2px 2px rgba(0, 195, 255, 0.5);
+			text-decoration: underline;
+		}
+		&_passive {
+			color: black;
+		}
+	}
+}

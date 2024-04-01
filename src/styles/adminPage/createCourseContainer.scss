@@ -1,0 +1,224 @@
+@import "../scss/template.scss";
+
+.createCourseContainer {
+
+	&__courseInfoContainer,
+	&__courseContainer,
+	&__subjectsContainer {
+		box-sizing: border-box;
+		height: 100%;
+	}
+
+	&__courseContainer,
+	&__subjectsContainer {
+		// border: 1px dotted blue;
+		
+		
+		padding: 10px 0 0 0;;
+
+		&_hidden {
+			display: none
+		}
+		&_visible {
+			display: block;
+		}
+	}
+
+	&__subjectsContainer {
+		padding-top: 0;
+	}
+
+	&__borderContainer {
+		border-style: none;
+		height: calc(100% - 38px);
+
+		& legend {
+			// border: 1px dotted red;
+			display: none;
+		}
+	}
+	&__descriptionContainer {
+		// border: 1px dotted red;
+		// padding: 2px;
+		@extend %resetBox;
+
+
+		height: calc(100% - 43px);
+		overflow: hidden;
+	}
+
+
+	&__descriptionSubjectScroll {
+		// border: 1px dotted red;
+
+		@extend %resetBox;
+		height: calc(100% - 43px);
+		overflow: hidden;
+	}
+
+	&__spaceContainer {
+		// border: 1px solid black;
+
+		box-sizing: border-box;
+		height: 20px;
+		width: 20px;
+
+	}
+
+	&__dataContainer {
+		// border: 1px dotted red;
+		@include setBox( 0, 5px 25px 8px 25px );
+		@extend %templateBorderContainer;	
+	}
+
+	&__dataItem {
+		// border: 1px dotted black;
+		@extend %templateDataItem;
+	}
+
+	&__dataProp {
+		// border: 1px dotted red;
+		font-weight: bold;
+	}
+
+	&__dataValue {
+		// border: 1px dotted red;
+		@extend %templateDataValue;
+	}
+
+	&__dataValueInput {
+		@extend %templateDataValueInput;
+	}
+
+	&__fileDataContainer {
+
+		@include setBox( 0 0, 0 20px );
+
+		// border: 1px dotted black;
+
+		width: auto;
+		overflow:  hidden;
+		display: grid;
+		grid-template-columns: 240px calc(100% - 240px);
+		// grid-template-columns: 250px fit-content;
+		grid-template-rows: 60px;
+		align-items: center;
+		justify-items: space-between;
+
+		@media( max-width: 1319px) {
+			grid-template-columns: 90px auto;
+		}
+	}
+
+	&__fileContainer {
+		// border: 1px dotted lightcoral;
+		height: 100%;
+		@extend %resetBox;
+		@include simpleFlex(row, flex-start, center);
+	}
+
+	&__fileName {
+		// border: 1px solid black;
+		@extend %resetBox;
+		@include simpleFlex( row, flex-start, center);
+		word-break: break-all;
+		overflow: hidden;
+	}
+
+	&__courseFileBox{
+		// border: 1px dotted red;
+		
+		@include setBox( 0 0 0 15px, 0 );
+
+		height: calc(100% - 20%);
+		width: 35px;
+		// background-image: url("../../../../../../public/imagePdf.png");
+	}
+
+	&__imagePdf {
+		width: 100%;
+		height: 100%;
+	}
+
+	&__courseFileData {
+		display: none;
+	}
+
+	&__courseFileDataButton {
+		@extend %templateButton;
+		@include simpleFlex( row, center, center);
+
+		font-size: 14px;
+		font-family: sans-serif;
+		font-weight: normal;
+
+		@media(max-width: 1319px) {
+	
+			&_title {
+				display: none;
+			}
+
+			&_add {
+				background-position: -123px -153.5px;
+			}
+
+		}
+	}
+
+	&__subjectTextEditorContainer,
+	&__courseTextEditorContainer {
+	// border: 1px solid blue;
+		@extend %resetBox;
+		overflow: hidden;
+	}
+
+	&__subjectTextEditorContainer {
+		height: calc(100% - 20px);
+	}
+
+	&__courseTextEditorContainer{
+		height: calc( 100% - 60px);
+	}
+	
+	&__wrapperClassName {
+		@include setBox(0, 10px 10px 0px);
+		@extend %templateBorderContainer;
+		height: 100%;
+	}
+	&__editorClassName {
+		// border: 1px dashed green;
+		@extend %templateEditorClass;
+	}
+	&__toolbarClassName {
+		// border: 1px dashed red;
+		@extend %templateToolbarClass;
+		
+	}
+
+	&__supListLabel {
+		// border: 1px dotted red;
+		height: 25px;
+		
+		display: grid;
+		grid-template-columns: 20px auto;
+		align-items: center;
+		// justify-items: start;
+		// justify-content: start;
+	}
+
+	&__supListInput {
+		height: 20px;
+		// border: 1px dotted black;
+	}
+	&__supListTitle {
+		// border: 1px dotted green;
+		margin: 0 0 0 5px;
+	}
+	&__createButton {
+		margin: 0 0 0 5px;
+		text-decoration: underline;
+		
+		cursor: pointer;
+	}
+	
+}

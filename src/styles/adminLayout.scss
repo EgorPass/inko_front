@@ -1,0 +1,307 @@
+@import './scss/template.scss';
+@import "./scss/var.scss";
+@import "./scss/mixin.scss";
+* {
+	scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+	width: 8px;
+}
+*::-webkit-scrollbar-button {
+	display: none;
+}
+*::-webkit-scrollbar-track {
+	background-color: #f7f7f7;
+	box-shadow: inset 0px 0px 4px rgba(128, 128, 128, 0.507);
+	border-radius: 3px;
+	margin: 2px 0;
+}
+*::-webkit-scrollbar-thumb {
+	box-shadow: inset 0px 0px 4px rgba(128, 128, 128, 0.514);
+	background-color: rgba(221, 221, 221, 0.5);
+
+	border-radius: 3px;
+
+	&:hover {
+		background-color: rgba(190, 190, 190, 0.5);
+	}
+
+}
+
+.pegasBody{
+	
+	&__loaderContainer {
+		// border: 10px double black;
+		@extend %resetBox;
+		
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		
+		min-height: 100vh;
+		max-height: 100vh;
+		overflow: hidden;
+
+		@include simpleFlex( row, center, center);
+
+		background-color: $modalContainerBG;
+		z-index: 1000;
+	}
+
+	&__errorBody {
+
+		@extend %resetBox;
+		
+		position: fixed;
+		top: 0;
+		left: 0;
+
+		width: 100vw;
+		height: 100vh;
+
+		background-color: $modalContainerBG;
+		z-index: 1000;
+
+		@include simpleFlex( row, center, center);
+	}
+
+	&__mainErrorContainer {
+		
+		max-width: calc(100vw - 50%);
+		min-width: calc(100vw - 70%);
+		// border: 1px dotted red;
+
+		@extend %resetBox;
+		margin: 0px auto;
+		border: 1px solid rgba(128, 128, 128, 0.5);
+		border-radius: 15px 15px 15px 15px;
+		box-shadow: 2px 2px 8px 2px gray;
+		display: grid;
+		grid-template-rows: 200px 70px;
+		grid-template-columns: auto;
+	
+		& .mainErrorContainer {
+			
+			&__messageContainer {
+				// border: 1px dotted blue;
+
+				box-sizing: border-box;
+				border-radius: 15px 15px 0 0;
+				background-color: #f1f1f1;
+				background-image: linear-gradient(0deg, #f1f1f1 170px, rgba(192, 202, 187, 0.527) );
+				
+				padding: 20px 30px 0px ;
+			}
+
+			&__errorMessage {
+
+				// border: 1px dotted red;
+
+				height: calc( 100% - 16px); 
+				overflow: auto;
+				text-align: center;
+
+				box-sizing: border-box;
+			}
+
+			&__buttonContainer {
+				
+				// border: 1px dotted blue;
+				
+				box-sizing: border-box;
+				border-radius: 0 0 15px 15px;
+				
+				@include simpleFlex( row, center, center );
+				
+				background-color: #f1f1f1;
+				background-image: linear-gradient(0deg, rgba(192, 202, 187, 0.527 ) , #f1f1f1 40px );
+				
+			}
+		}
+	}
+
+	&__upLoaderContainer {
+		
+		@extend %resetBox;
+
+		position: fixed;
+		top: 0;
+		left: 0;
+	
+		width: 100vw;
+		height: 100vh;
+	
+		background-color: $modalContainerBG;
+		z-index: 1001;
+	
+		@include simpleFlex( row, center, center )
+	}
+
+	&__mainUpLoaderContainer {
+	
+		@extend %resetBox;
+		@include simpleFlex( row, center, center );
+
+		max-width: calc(100vw - 50%);
+		min-width: calc(100vw - 60%);
+		// border: 1px dotted red;
+		height: 170px;
+		border: 1px solid rgba(128, 128, 128, 0.5);
+		border-radius: 15px 15px 15px 15px;
+		box-shadow: 2px 2px 8px 2px gray;
+		
+		background-color: #f1f1f1;
+		background-image: linear-gradient(
+			180deg, 
+			rgba(192, 202, 187, 0.527) 0px, 
+			rgba(192, 202, 187, 0.527) 8px,
+			#f1f1f1 30px, 
+			#f1f1f1 140px, 
+			rgba(192, 202, 187, 0.527) 160px,
+			rgba(192, 202, 187, 0.527) 170px
+			);
+
+		& .mainUpLoaderContainer {
+
+			
+			&__progressNumbers {
+
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				z-index: 1002;
+				
+				@include simpleFlex( row, center, center );
+			}
+
+			&__progressTitleContainer {
+				width: 75%;
+				font-style: italic;
+				font-size: 14px;
+				margin: -15px 0 15px 0;
+			
+				@include simpleFlex(column, center, center);
+			}
+			
+			&__progressTitle {
+				@extend %resetBox;
+			}
+
+			&__head {
+				margin: 0 0 5px 0;
+				padding: 0;
+				text-align: center;
+			
+			}
+
+			&__progressBarContainer{
+				@extend %resetBox;
+				position: relative;
+				border: 1px solid rgba(128, 128, 128, 0.521);
+				box-shadow: inset 0px 0px 4px rgba(39, 39, 39, 0.514);
+
+				height: 20px;
+				width: 75%;
+
+				background-color: #f9f9f9;
+				border-radius: 5px;
+				overflow: hidden;
+			}
+			
+			&__progressBar {
+
+				@extend %resetBox;
+				height: 100%;
+				width: 0%;
+				background-color: rgb(206, 206, 206);
+				transition: width ease .3s;
+			}
+		
+		}
+	}
+
+
+	&__adminBody {
+		@extend %resetBox;
+		background-color: $adminBodyBG;
+		height: 100vh;
+
+		width: auto;
+		// width: 100%;
+		// border: 1px dotted black;
+
+
+		display: grid;
+		grid-template-rows: $adminBodyGridRow_ms;
+		overflow-y: auto;
+
+	}
+
+	&__adminHeader {
+		@extend %resetBox;
+		// border: 1px solid yellow;
+		background-color: $adminHeaderBG;
+		box-shadow: $adminHeaderBoxShadow;
+		
+		
+		@include setBox( 0 , 0 );
+		position: relative;
+
+		// background-image: url(../assets/inko.png);
+		// background-repeat: no-repeat;
+		// background-repeat: repeat;
+		// background-size: 50px 100%;
+		// background-position: 100px 0px;
+
+		& h2 {
+			@extend %resetBox;
+		}
+	}
+
+	&__adminPage {
+		// overflow-y: auto;
+		height: auto;
+		// border: 1px solid blue;
+		position: relative;
+		
+		@media( max-width: 1319px) {
+			
+			// width: 100%;
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: center;
+			align-items: center;
+		}
+		
+
+		@media( min-width: 1320px ) {
+			
+			position: static;
+
+			@include setBox( $adminPageMargin_ms, $adminPagePadding_ms );
+				
+			display: grid;
+			grid-template-columns: $adminPageGridCol_ms;
+			grid-column-gap: $adminPageGridGap_ms;
+		}
+		
+
+	}
+
+
+	&__pdfViewer {
+		// border: 1px solid blue;
+		box-sizing: border-box;
+		padding: 5px 15px;
+	}
+
+	&__adminFooter {
+		display: none;
+		box-shadow: -2px -2px 2px gray;
+		box-sizing: border-box;
+		// border: 1px solid yellow;
+		background-color: #f7f7f7;
+	}
+}

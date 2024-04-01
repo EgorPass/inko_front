@@ -1,0 +1,62 @@
+@import "../scss/template.scss";
+// @import "../scss/mixin.scss"
+.createUserContainer {
+
+	&__userInfoContainer,
+	&__userCourseContainer,
+	&__userDescriptionContainer {
+
+		box-sizing: border-box;
+		height: 100%;
+		
+		&_visible {
+			display: block;
+		}
+		&_hidden {
+			display: none;
+		}
+	}
+
+	&__dataContainer {
+		// border: 1px dotted blue;
+		@include setBox( 0, 10px 25px 25px );
+	}
+
+	&__dataItem {
+		@extend %templateDataItem;
+	}
+
+	&__dataProp {
+		font-weight: bold;
+	}
+
+	&__dataValue {
+		// border: 1px dotted red;
+		@extend %templateDataValue;	
+	}
+
+	&__dataValueInput {
+		@extend %templateDataValueInput;
+	}
+
+	&__userTextEditorContainer{
+		@extend %resetBox;
+		overflow: hidden;
+		height: calc(100% - 48px);
+	}
+
+	&__wrapperClassName {
+		@include setBox( 0, 10px 10px 0px);
+		@extend %templateBorderContainer;			
+		height: 100%;
+	}
+	&__editorClassName {
+		// border: 1px dashed green;
+		@extend %templateEditorClass;
+	}
+	&__toolbarClassName {
+		// border: 1px dashed red;
+		@extend %templateToolbarClass;	
+	}
+
+}
