@@ -11,6 +11,7 @@ export const InputComponent = ({
 	placeholder = name,
 	classNameInput,
 	children,
+	disabled,
 }) => (
 
 	<SimpleFieldset
@@ -25,6 +26,7 @@ export const InputComponent = ({
 			className = { classNameInput }
 			handleChange = { handleChange }
 			handleClick = { handleClick }
+			disabled = { disabled }
 		/>
 		{ children }
 	</SimpleFieldset>

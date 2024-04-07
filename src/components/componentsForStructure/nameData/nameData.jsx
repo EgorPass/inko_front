@@ -3,7 +3,7 @@ import { translator } from "../../stockData/stockDataForAdmin/stockDataForAdmin"
 import { Span, Div } from "../componentsContainer/containerComponents";
 import { InputComponent } from "../componentsForForm/inputComponent/InputComponent"
 
-export const NameDataItem = ({ value, handleChange, name, title, blockName = "mainDataField" }) => (
+export const NameDataItem = ({ value, handleChange, name, title, blockName = "mainDataField", disabled }) => (
 	<Div
 		className = {`${blockName}__dataItem`}
 	>
@@ -19,11 +19,12 @@ export const NameDataItem = ({ value, handleChange, name, title, blockName = "ma
 			handleChange = { handleChange }
 			placeholder = { title }
 			classNameInput = { `${blockName}__dataValueInput`}
+			disabled = { disabled }
 		/> 
 	</Div>
 )
 
-export const NameData = ({ state, handleChange, blockName }) => (
+export const NameData = ({ state, handleChange, blockName, disabled }) => (
 	<Div
 		className = {`${blockName}__dataContainer`}
 	>
@@ -35,6 +36,7 @@ export const NameData = ({ state, handleChange, blockName }) => (
 					value = { state.email }
 					handleChange = { handleChange }
 					blockName = { blockName }
+					disabled = { disabled }
 				/>
 			)
 		}
@@ -49,7 +51,7 @@ export const NameData = ({ state, handleChange, blockName }) => (
 							title = { translator[ prop ] }
 							handleChange = { handleChange }
 							blockName = { blockName }
-
+							disabled = { disabled }
 						/>
 				)
 			})

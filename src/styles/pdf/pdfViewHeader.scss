@@ -160,11 +160,15 @@
 			left: 1px;
 		}
 		
+		&:disabled {
+			visibility: hidden;
+		}
 
 		@media( max-width: 1319px) {
 			&_zoomUp, &_zoomDown, &_widthResize, &_heightResize {
 				display: none;
 			}
+
 		}
 
 

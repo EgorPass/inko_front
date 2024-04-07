@@ -1,8 +1,8 @@
+import { useGetStore } from "../../../../redux/reduxHooks/useGetStore"
 import { useEffect } from "react"
 import { Div, Span } from "../../../componentsForStructure/componentsContainer/containerComponents"
 import { SimpleButton , DefaultInput } from "../../../componentsForStructure/componentsForForm/componentForForm"
 import { usePdfHeaderHooks } from "../../../componentsHooks/pdfViewerHooks/usePdfHeaderHooks"
-import { TitleForButton } from "../../../componentsForStructure/componentsForForm/componentForForm"
 
 import "../../../../styles/pdf/pdfViewHeader.scss"
 
@@ -21,6 +21,8 @@ export const PdfHeader = ({
 	downloadState,
 }) => {
 	
+	const { userRoles } = useGetStore("user");
+
 	const {
 		loaderRef,
 
@@ -35,7 +37,6 @@ export const PdfHeader = ({
 		handleDownloadFile,
 
 	} = usePdfHeaderHooks({
-													// setLoader,
 													numPages, 	id,				title,		
 													zoom, 			setZoom,	setFullScreen, 
 													scrollTop, 	scrollHeight,
@@ -74,12 +75,7 @@ export const PdfHeader = ({
 					className = "pdfViewer__navigatorButtonBox"
 				>
 					<SimpleButton
-						// title = {
-						// 	<TitleForButton
-						// 		mod = "minusPage" 
-						// 		className = "pdfViewer__buttonIcon"
-						// 	/>
-						// }
+						
 						title = ""
 						className="pdfViewer__menuButton pdfViewer__menuButton_minusPage"
 						disabled = { buttonDisabled }
@@ -88,12 +84,7 @@ export const PdfHeader = ({
 					/>
 
 					<SimpleButton
-						// title = {
-						// 	<TitleForButton
-						// 		mod = "plusPage" 
-						// 		className = "pdfViewer__buttonIcon"
-						// 	/>
-						// }
+						
 						title = ""
 						className="pdfViewer__menuButton pdfViewer__menuButton_plusPage"
 						disabled = { buttonDisabled }
@@ -154,17 +145,9 @@ export const PdfHeader = ({
 			<Div
 				className = 'pdfViewer__zoomNavigator'
 			>
-				{/* <SimpleButton
-
-				/> */}
-
+				
 				<SimpleButton
-					// title = {
-					// 	<TitleForButton
-					// 		mod = "zoomDown" 
-					// 		className = "pdfViewer__buttonIcon"
-					// 	/>
-					// }
+					
 					title = ""
 					className = "pdfViewer__menuButton pdfViewer__menuButton_zoomDown"
 					disabled = { buttonDisabled }
@@ -172,12 +155,7 @@ export const PdfHeader = ({
 					alt = "уменьшить размер"
 				/>
 				<SimpleButton
-					// title = {
-					// 	<TitleForButton
-					// 		mod = "zoomUp" 
-					// 		className = "pdfViewer__buttonIcon"
-					// 	/>
-					// }
+					
 					title = ""
 					className = "pdfViewer__menuButton pdfViewer__menuButton_zoomUp"
 					disabled = { buttonDisabled }
@@ -185,12 +163,7 @@ export const PdfHeader = ({
 					alt = "увеличить размер"
 				/>
 				<SimpleButton
-					// title = {
-					// 	<TitleForButton
-					// 		mod = "heightResize" 
-					// 		className = "pdfViewer__buttonIcon"
-					// 	/>
-					// }
+					
 					title = ""
 					className = "pdfViewer__menuButton pdfViewer__menuButton_heightResize"
 					disabled = { buttonDisabled }
@@ -198,12 +171,7 @@ export const PdfHeader = ({
 					alt = "размер по высоте"
 				/>
 				<SimpleButton
-					// title = {
-					// 	<TitleForButton
-					// 		mod = "widthResize" 
-					// 		className = "pdfViewer__buttonIcon"
-					// 	/>
-					// }
+					
 					title = ""
 					className = "pdfViewer__menuButton pdfViewer__menuButton_widthResize"
 					disabled = { buttonDisabled }
@@ -211,12 +179,7 @@ export const PdfHeader = ({
 					alt = "размер по ширине"
 				/>
 				<SimpleButton
-					// title = {
-					// 	<TitleForButton
-					// 		mod={`${fullScreen ? "mainScreen" : "fullScreen"}`} 
-					// 		className = "pdfViewer__buttonIcon"
-					// 	/>
-					// }
+					
 					title = ""
 					className = "pdfViewer__menuButton pdfViewer__menuButton_fullScreen"
 					disabled = { buttonDisabled }
@@ -229,18 +192,15 @@ export const PdfHeader = ({
 			<Div
 				className = "pdfViewer__dataNavigator"
 			>
+
 				<SimpleButton
-					// title = {
-					// 	<TitleForButton
-					// 		mod = "save" 
-					// 		className = "pdfViewer__buttonIcon"
-					// 	/>
-					// }
+					
 					title = ""
 					className = "pdfViewer__menuButton pdfViewer__menuButton_saveFile"
-					disabled = { buttonDisabled }
+					// disabled = { buttonDisabled }
 					handleClick = {			handleDownloadFile				}
 					alt = "сохранить"
+					disabled = { !userRoles.includes(1000011) || buttonDisabled }
 				/>
 
 			</Div>

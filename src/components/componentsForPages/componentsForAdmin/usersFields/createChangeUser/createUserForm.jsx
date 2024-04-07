@@ -22,7 +22,8 @@ const CreateUserForm = ( { isCreateUser } ) => {
 	
 	const { user, createUser, setChangerFalse, initialDataForUserEditor_ } = useSimpleFieldContext()
 	const { users, courses, subjects } = useGetStore("adminState")
-	
+	const { id } = useGetStore("user")
+
 	const { 
 
 		editRef,
@@ -38,9 +39,8 @@ const CreateUserForm = ( { isCreateUser } ) => {
 		handleSubmit, 		handleClickRemove,
 	} = useCreateUserForm( { user: (createUser ? null: user), setChangerFalse, users, isCreateUser: createUser, initialDataForUserEditor_ } )
 	
+	const disabled = (id && user && user.id) ? (+id === user.id) : false;
 
-
-	
 	return (
 		<Div
 			className = "adminPage__createUserContainer createUserContainer"
@@ -75,6 +75,7 @@ const CreateUserForm = ( { isCreateUser } ) => {
 									state = { userState }
 									handleChange = { userChangeState }
 									blockName = "createUserContainer"
+									disabled = { disabled }
 								/>
 
 								<InfoFieldContainer
@@ -82,9 +83,10 @@ const CreateUserForm = ( { isCreateUser } ) => {
 									classNameForDiv="createUserContainer__userRoles"
 									classNameForHead="createUserContainer__head"
 									>
-								<RolesData
-									state = { rolesState }
-									handleChange = { rolesChangeState }
+									<RolesData
+										state = { rolesState }
+										handleChange = { rolesChangeState }
+										disabled = { disabled }
 									/>
 								</InfoFieldContainer>
 							</Div>

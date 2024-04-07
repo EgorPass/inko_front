@@ -126,10 +126,19 @@ export const useCreateCourses = ({
 
 	const handleClickRemove = (e) => {
 		e.preventDefault();
-		removeCourse( course.id )
-		setCourseInfo( null )
-		
-		closeCourseChange()
+		const state = window.confirm("Уверены, что хотите удалить этот курс?")
+		try {
+			
+			if (state) {
+				removeCourse(course.id)
+				setCourseInfo( null )	
+				closeCourseChange()
+			}
+			
+		}
+		catch (e) {
+			console.log( e )
+		}
 	}
 
 	const handleClickSave = async (e) => {

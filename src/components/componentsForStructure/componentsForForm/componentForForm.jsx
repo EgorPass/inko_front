@@ -62,7 +62,8 @@ export const SimpleInput = ({
 															type = "text",
 															name = "login",
 															placeholder = name,
-														}) => (
+															disabled = false														
+}) => (
 	<input
 		type = { type }
 		name = { name }
@@ -72,7 +73,8 @@ export const SimpleInput = ({
 		autoComplete = "true"
 		placeholder = { placeholder }
 		onClick = { handleClick }
-		onBlur = { handleBlur }											
+		onBlur = { handleBlur }										
+		disabled = { disabled }
 	/>
 )
 
@@ -107,7 +109,8 @@ export const SimpleCheckbox = ({
 																classNameTitle = "",
 																classNameInput = "",
 																classNameLabel = "",
-															}) => (
+																disabled = false														
+	}) => (
 	<label
 		className = { classNameLabel}
 	>
@@ -118,6 +121,7 @@ export const SimpleCheckbox = ({
 			checked = { checked }
 			className = { classNameInput }
 			onChange = { handleChange }
+			disabled = { disabled }
 		/>
 		<Span
 			title = { title }

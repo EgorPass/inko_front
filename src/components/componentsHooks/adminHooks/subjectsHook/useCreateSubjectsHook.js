@@ -42,14 +42,18 @@ export const useCreateSubjects = ({changeCourse, subjects, subject, closeSubject
 
 	const handleClickRemove = (e) => {
 		e.preventDefault()
+		const state = window.confirm("Уверены, что хотите удалить этот предмет?")
+		
 		try {
-			removeSubject(subjectChange.id)
+			if (state) {	
+				removeSubject(subjectChange.id)
+				setSubjectInfo( null )
+				closeSubjectChange()
+			}
 		}
 		catch (e) {
 			console.log( e )
 		}
-			closeSubjectChange()
-			setSubjectInfo( null )
 	}
 	
 	const handleClickSave = async (e) => {
